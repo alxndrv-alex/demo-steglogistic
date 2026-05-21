@@ -1,0 +1,18 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.feedback {
+  &-page {
+    width: 100%;
+    background-color: $gray-background;
+    padding: 160px 0;
+  }
+}
+
+@media screen and (max-width: $tablet-m) {
+  .feedback {
+    &-page {
+      padding: 160px 0px 0px 0px;
+    }
+  }
+}

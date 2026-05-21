@@ -1,0 +1,31 @@
+.background-image-absolute {
+    position: relative;
+}
+
+.background-image-absolute img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.background-image-absolute-direct > img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    object-fit: cover;
+    z-index: -1;
+    //height: 100%; /* Высота изображения равна высоте контейнера */
+    //width: auto; /* Ширина автоматически определяется, чтобы сохранить пропорции */
+    //object-fit: cover; /* Масштабирование изображения для заполнения контейнера */
+    //position: absolute;
+    //top: 50%;
+    //left: 50%;
+    //transform: translate(-50%, -50%); /* Центрирование изображения */
+}

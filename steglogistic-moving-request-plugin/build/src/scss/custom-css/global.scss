@@ -1,0 +1,177 @@
+body {
+    background-color: $white;
+}
+
+.cta-phone-fixed {
+    display: none;
+}
+
+.footer-logo {
+    width: 8rem !important;
+}
+
+.single-date {
+    background: $secondary-color;
+    color: $white;
+    padding: 0.3rem 0.6rem;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    text-transform: uppercase;
+    font-size: .9rem;
+    font-weight: $bold-weight;
+}
+
+
+@media (max-width: $bp-sm) {
+    .cta-phone-fixed {
+        display: none;
+        position: fixed;
+        bottom: 30px;
+        right: 30px;
+        height: 55px;
+        width: 55px;
+        border-radius: 50%;
+        background: #00bb00;
+        z-index: 99;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
+
+.splide__pagination__page.is-active {
+    transform: scale(1.4);
+    background: $black;
+}
+
+.step-nav button {
+    position: relative;
+    background: $button-background;
+    color: $button-color;
+    border: none;
+    border-radius: $button-border-radius;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    text-transform: $button-text-transform;
+    font-family: $button-font-family;
+    font-weight: $button-font-weight;
+    font-size: $button-font-size;
+    line-height: $line-height-small;
+    padding: 0 $button-horizontal-padding;
+    height: $button-height;
+    transition-duration: $button-transition-duration;
+    cursor: pointer;
+    outline: none;
+    letter-spacing: .1rem;
+    margin-right: 2rem;
+}
+
+.blobb-with-icon,
+.blobb-with-big-icon {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 2.5rem;
+    height: 2.5rem;
+    border-radius: 100%;
+    background-color: $secondary-color;
+}
+
+.blobb-with-icon svg {
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.blobb-with-big-icon svg {
+    width: 3.5rem;
+    height: 3.5rem;
+}
+
+.blobb-with-icon path,
+.blobb-with-big-icon path {
+    fill: $white;
+}
+
+.text-link {
+    color: $link-color;
+    font-weight: $bold-weight;
+    border-bottom: 1px solid $link-color;
+}
+
+.text-link:hover {
+    color: $hover-color;
+    border-color: $hover-color;
+}
+
+.temp-div-1 {
+    position: relative;
+}
+
+.temp-div-1:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    height: 65%;
+    width: 1px;
+    background-color: $black-alpha-2;
+}
+
+.temp-div-2 {
+    position: relative;
+}
+
+.temp-div-2:after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 0;
+    height: 65%;
+    width: 1px;
+    background-color: $black-alpha-2;
+}
+
+.off-canvas-open .header-row .button {
+    transform: translateY(-150%);
+}
+
+.splide__pagination {
+    bottom: 0;
+}
+
+.max-width-120px {
+    max-width: 120px;
+}
+
+@media (max-width: $bp-md) {
+    .splide__arrow--next {
+        right: -1rem;
+    }
+
+    .splide__arrow--prev {
+        left: -1rem;
+    }
+}
+
+@media (max-width: $bp-sm) {
+
+    .ff-step-titles li span {
+        display: none;
+        transform: rotate(90deg);
+        padding-left: 2.6rem;
+        white-space: nowrap;
+    }
+}
+
+.fp-reco-badge a,
+.fp-reco-badge img {
+    width: 8rem !important;
+    height: 100% !important;
+}

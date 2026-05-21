@@ -1,0 +1,57 @@
+.primary-font-family {
+    font-family: $primary-font-family;
+}
+
+.secondary-font-family {
+    font-family: $secondary-font-family;
+}
+
+.tertiary-font-family {
+    font-family: $tertiary-font-family;
+}
+
+.light-weight {
+    font-weight: $light-weight;
+}
+
+.normal-weight {
+    font-weight: $normal-weight;
+}
+
+.bold-weight {
+    font-weight: $bold-weight;
+}
+
+.italic {
+    font-style: italic;
+}
+
+.uppercase {
+    text-transform: uppercase;
+}
+
+.line-height-large {
+    line-height: $line-height-large;
+}
+
+.line-height-medium {
+    line-height: $line-height-medium;
+}
+
+.line-height-small {
+    line-height: $line-height-small;
+}
+
+.lead-text {
+    font-style: italic;
+    font-size: $font-size-medium;
+    line-height: $line-height-medium;
+}
+
+.meta-text {
+    color: $secondary-color;
+    font-size: $font-size-extra-small;
+    text-transform: uppercase;
+    font-weight: $bold-weight;
+    letter-spacing: 1px;
+}

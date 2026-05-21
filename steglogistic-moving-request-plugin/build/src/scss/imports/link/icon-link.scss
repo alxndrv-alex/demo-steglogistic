@@ -1,0 +1,39 @@
+// Icon Link Inverted
+
+.icon-link {
+  display: flex;
+  align-items: center;
+}
+
+.icon-link svg {
+  margin-right: 0.5rem;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.icon-link path {
+  fill: $link-color;
+  transition-duration: $button-transition-duration !important;
+}
+
+.icon-link:hover path {
+  fill: $hover-color;
+}
+
+// Icon Link Inverted
+
+.icon-link.inverted {
+  color: $button-inverted-background;
+}
+
+.icon-link.inverted path {
+  fill: $button-inverted-background;
+}
+
+.icon-link.inverted:hover {
+  color: $button-inverted-background-hover;
+}
+
+.icon-link.inverted:hover path {
+  fill: $button-inverted-background-hover;
+}

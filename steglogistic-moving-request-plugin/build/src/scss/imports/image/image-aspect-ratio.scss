@@ -1,0 +1,169 @@
+.image-aspect-ratio {
+    position: relative;
+    display: flex;
+}
+
+.image-aspect-ratio img {
+    position: absolute;
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+}
+
+.a-1-1 {
+    padding-bottom: 100%;
+}
+
+.a-4-3 {
+    padding-bottom: 75%;
+}
+
+.a-3-2 {
+    padding-bottom: 66.66%;
+}
+
+.a-16-9 {
+    padding-bottom: 56.25%;
+}
+
+.a-2-1 {
+    padding-bottom: 50%;
+}
+
+.a-3-1 {
+    padding-bottom: 33.33%;
+}
+
+.a-4-1 {
+    padding-bottom: 25%;
+}
+
+.a-1-2 {
+    padding-bottom: 200%;
+}
+
+.a-2-3 {
+    padding-bottom: 150%;
+}
+
+.a-3-4 {
+    padding-bottom: 133.335%;
+}
+
+@media (max-width: $bp-lg) {
+    .lg-1-1 {
+        padding-bottom: 100%;
+    }
+
+    .lg-4-3 {
+        padding-bottom: 75%;
+    }
+
+    .lg-3-2 {
+        padding-bottom: 66.66%;
+    }
+
+    .lg-16-9 {
+        padding-bottom: 56.25%;
+    }
+
+    .lg-2-1 {
+        padding-bottom: 50%;
+    }
+
+    .lg-3-1 {
+        padding-bottom: 33.33%;
+    }
+
+    .lg-4-1 {
+        padding-bottom: 25%;
+    }
+
+    .lg-1-2 {
+        padding-bottom: 200%;
+    }
+
+    .lg-2-3 {
+        padding-bottom: 150%;
+    }
+
+    .lg-3-4 {
+        padding-bottom: 133.335%;
+    }
+}
+
+@media (max-width: $bp-md) {
+    .md-1-1 {
+        padding-bottom: 100%;
+    }
+    .md-4-3 {
+        padding-bottom: 75%;
+    }
+    .md-3-2 {
+        padding-bottom: 66.66%;
+    }
+    .md-16-9 {
+        padding-bottom: 56.25%;
+    }
+    .md-2-1 {
+        padding-bottom: 50%;
+    }
+    .md-3-1 {
+        padding-bottom: 33.33%;
+    }
+    .md-4-1 {
+        padding-bottom: 25%;
+    }
+
+    .md-1-2 {
+        padding-bottom: 200%;
+    }
+
+    .md-2-3 {
+        padding-bottom: 150%;
+    }
+
+    .md-3-4 {
+        padding-bottom: 133.335%;
+    }
+}
+
+@media (max-width: $bp-sm) {
+    .sm-1-1 {
+        padding-bottom: 100%;
+    }
+
+    .sm-4-3 {
+        padding-bottom: 75%;
+    }
+
+    .sm-3-2 {
+        padding-bottom: 66.66%;
+    }
+
+    .sm-16-9 {
+        padding-bottom: 56.25%;
+    }
+    .sm-2-1 {
+        padding-bottom: 50%;
+    }
+    .sm-3-1 {
+        padding-bottom: 33.33%;
+    }
+
+    .sm-4-1 {
+        padding-bottom: 25%;
+    }
+
+    .sm-1-2 {
+        padding-bottom: 200%;
+    }
+
+    .sm-2-3 {
+        padding-bottom: 150%;
+    }
+
+    .sm-3-4 {
+        padding-bottom: 133.335%;
+    }
+}

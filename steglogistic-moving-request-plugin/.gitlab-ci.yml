@@ -1,0 +1,282 @@
+stages: [build, release, deploy]
+
+variables:
+  GIT_DEPTH: "0"
+  ARCH_NAME: "steglogistic-moving-request-plugin"
+  PLUGIN_MAIN_FILE: "steglogistic-moving-request-plugin.php"
+  PACKAGE_NAME: "steglogistic-moving-request-plugin"
+
+build:
+  stage: build
+  image: alpine:3.20
+  tags: [docker]
+  only: [master]
+  when: manual
+  before_script: |
+    set -Eeuo pipefail
+    apk add --no-cache git zip
+    git config --global --add safe.directory "$CI_PROJECT_DIR"
+  script: |
+    echo "== Build debug =="
+    echo "Main file: $PLUGIN_MAIN_FILE"
+
+    # 1) Ensure main plugin file exists
+    if [ ! -f "$PLUGIN_MAIN_FILE" ]; then
+      echo "ERROR: $PLUGIN_MAIN_FILE not found"; exit 1
+    fi
+
+    # 2) Extract Version
+    VERSION=$(head -n 200 "$PLUGIN_MAIN_FILE" | sed -n -E 's/^[[:space:]]*[\/*#-]*[[:space:]]*Version[[:space:]]*:[[:space:]]*([^[:space:]].*)/\1/ip' | head -n1)
+    echo "VERSION: ${VERSION:-<none>}"
+    if [ -z "$VERSION" ]; then
+      echo "ERROR: Version header not found"; exit 1
+    fi
+    TAG="v$VERSION"
+    echo "TAG: $TAG"
+
+    # 3) Prepare temp tree with ONLY tracked files (and exclusions)
+    TMPROOT=$(mktemp -d)
+    git ls-files | grep -Ev '^(\.gitignore|\.gitlab-ci\.yml|build/)' > "$TMPROOT/files.list"
+
+    mkdir -p "$TMPROOT/${ARCH_NAME}"
+    # copy preserving directory structure
+    while IFS= read -r rel; do
+      dest="$TMPROOT/${ARCH_NAME}/$rel"
+      mkdir -p "$(dirname "$dest")"
+      cp -a "$rel" "$dest"
+    done < "$TMPROOT/files.list"
+
+    # 4) Create ZIP with a single top-level folder ${ARCH_NAME}/
+    rm -f "dist-${TAG}.zip"
+    ( cd "$TMPROOT" && zip -r "$CI_PROJECT_DIR/dist-${TAG}.zip" "${ARCH_NAME}" > /dev/null )
+
+    # cleanup
+    rm -rf "$TMPROOT"
+
+    ls -lh "dist-${TAG}.zip"
+
+    # 5) Pass metadata to release job
+    printf "%s" "$VERSION" > .version
+    printf "%s" "$TAG"     > .tag
+  artifacts:
+    paths:
+      - dist-*.zip
+      - .version
+      - .tag
+    expire_in: "7 days"
+
+release:
+  stage: release
+  image: alpine:3.20
+  tags: [docker]
+  needs: ["build"]
+  only: [master]
+  before_script: |
+    set -Eeuo pipefail
+    apk add --no-cache curl jq git
+    git config --global --add safe.directory "$CI_PROJECT_DIR"
+  script: |
+    echo "== Release debug =="
+
+    # 0) Token check
+    if [ -z "${API_TOKEN:-}" ]; then
+      echo "ERROR: API_TOKEN is not set"
+      exit 1
+    fi
+
+    # 1) Read metadata from artifacts
+    if [ ! -f .version ] || [ ! -f .tag ]; then
+      echo "ERROR: .version/.tag artifacts not found"; exit 1
+    fi
+    VERSION=$(cat .version)
+    TAG=$(cat .tag)
+    ZIP="dist-${TAG}.zip"
+    echo "VERSION: $VERSION"
+    echo "TAG: $TAG"
+
+    if [ ! -f "$ZIP" ]; then
+      echo "ERROR: $ZIP not found"; exit 1
+    fi
+
+    # 2) Build release description (CHANGELOG section or commits diff)
+    DESC_FILE=".release_desc.md"
+    : > "$DESC_FILE"
+
+    if [ -f CHANGELOG.md ]; then
+      awk -v v="$VERSION" '
+        BEGIN{IGNORECASE=1;p=0}
+        /^##[[:space:]]*\[?([0-9]+\.[0-9]+\.[0-9]+)\]?/{
+          if(p){exit}
+          if(index(tolower($0), tolower(v))){p=1; next}
+        }
+        p{print}
+      ' CHANGELOG.md > "$DESC_FILE" || true
+      if [ -s "$DESC_FILE" ]; then
+        awk 'BEGIN{RS="";ORS="\n\n"}{gsub(/[ \t]+$/,"",$0); print}' "$DESC_FILE" > "$DESC_FILE.tmp" && mv "$DESC_FILE.tmp" "$DESC_FILE"
+      fi
+    fi
+
+    if [ ! -s "$DESC_FILE" ]; then
+      git fetch --tags --force >/dev/null 2>&1 || true
+      LAST_TAG="$(git describe --tags --abbrev=0 2>/dev/null || echo "")"
+      if [ -n "$LAST_TAG" ]; then
+        RANGE="${LAST_TAG}..${CI_COMMIT_SHA}"
+      else
+        RANGE="${CI_COMMIT_SHA}"
+      fi
+      {
+        echo "### ${VERSION}"
+        if [ -n "$LAST_TAG" ]; then
+          echo
+          echo "**Changes since ${LAST_TAG}:**"
+        else
+          echo
+          echo "**Initial release**"
+        fi
+        git log --no-merges --pretty=format:'- [`%h`]('"${CI_PROJECT_URL}"'/-/commit/%h) %s' --max-count=200 $RANGE
+      } > "$DESC_FILE"
+      if [ ! -s "$DESC_FILE" ]; then
+        echo "Release ${TAG}" > "$DESC_FILE"
+      fi
+    fi
+
+    # 3) Ensure tag exists (create if missing)
+    STATUS=$(curl -s -o /dev/null -w "%{http_code}" \
+      --header "PRIVATE-TOKEN: ${API_TOKEN}" \
+      "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/repository/tags/${TAG}")
+    if [ "$STATUS" != "200" ]; then
+      curl --fail --silent \
+        --header "PRIVATE-TOKEN: ${API_TOKEN}" \
+        --data-urlencode "tag_name=${TAG}" \
+        --data-urlencode "ref=${CI_COMMIT_SHA}" \
+        "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/repository/tags" >/dev/null
+    fi
+
+    # 4) Upload ZIP to Generic Package Registry (stable permanent URL)
+    PACKAGE_NAME="${PACKAGE_NAME:-steglogistic-moving-request-plugin}"
+    FILENAME="$ZIP"  # keep the same filename (dist-vX.Y.Z.zip)
+    PACKAGE_URL="${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/packages/generic/${PACKAGE_NAME}/${VERSION}/${FILENAME}"
+
+    # PUT the file (201 Created on first upload; --fail will stop on non-2xx)
+    curl --fail --request PUT \
+      --header "PRIVATE-TOKEN: ${API_TOKEN}" \
+      --upload-file "$ZIP" \
+      "$PACKAGE_URL"
+
+    ASSET_URL="$PACKAGE_URL"
+    echo "ASSET_URL: $ASSET_URL"
+
+    # 5) Create or update Release with link to the package URL
+    jq -n \
+      --rawfile description "$DESC_FILE" \
+      --arg name "$TAG" \
+      --arg tag_name "$TAG" \
+      --arg url "$ASSET_URL" \
+      '{name:$name, tag_name:$tag_name, description:$description, assets:{links:[{name:"Plugin ZIP", url:$url}]}}' > create.json
+
+    CREATE_CODE=$(curl --silent -o /dev/null -w "%{http_code}" --request POST \
+      --header "PRIVATE-TOKEN: ${API_TOKEN}" \
+      --header "Content-Type: application/json" \
+      --data @create.json \
+      "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/releases")
+
+    if [ "$CREATE_CODE" != "201" ]; then
+      jq -n --rawfile description "$DESC_FILE" '{description:$description}' > update.json
+      curl --silent --fail --request PUT \
+        --header "PRIVATE-TOKEN: ${API_TOKEN}" \
+        --header "Content-Type: application/json" \
+        --data @update.json \
+        "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/releases/${TAG}" >/dev/null || true
+
+      jq -n --arg name "Plugin ZIP" --arg url "$ASSET_URL" '{name:$name, url:$url}' > link.json
+      curl --silent --fail --request POST \
+        --header "PRIVATE-TOKEN: ${API_TOKEN}" \
+        --header "Content-Type: application/json" \
+        --data @link.json \
+        "${CI_API_V4_URL}/projects/${CI_PROJECT_ID}/releases/${TAG}/assets/links" >/dev/null || true
+    fi
+###############################################################################################
+################################### DEPLOY TO SHARED DEV AND PROD #############################
+################################### DEVELOPMENT ENVIRONMENT ###################################
+deploy:dev:
+  stage: deploy
+  image: git.fastdev.se:4567/devops/docker-base-images:alpine-ansistrano
+  variables:
+    DEPLOY_HOST: "$DEPLOY_HOST_DEV"
+    DEPLOY_PATH: "$DEPLOY_PATH_DEV"
+    DEPLOY_USER: "$DEPLOY_USER_DEV"
+    DEPLOY_USER_KEY: "$SSH_PRIVATE_KEY_DEV"
+  script:
+    - mkdir -p ~/.ssh
+    - ssh-keyscan "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+    - echo "$DEPLOY_USER_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 700 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - rsync -av "$PWD/" "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
+      --exclude=".git"
+      --exclude=".gitlab-ci.yml"
+      --exclude=".gitignore"
+      --exclude="README.md"
+      --exclude="build"
+      --delete-after
+  only:
+    - develop
+  tags:
+    - docker
+
+################################### STAGING ENVIRONMENT #######################################
+deploy:stage:
+  stage: deploy
+  image: git.fastdev.se:4567/devops/docker-base-images:alpine-ansistrano
+  variables:
+    DEPLOY_HOST: "$DEPLOY_HOST_STAGE"
+    DEPLOY_PATH: "$DEPLOY_PATH_STAGE"
+    DEPLOY_USER: "$DEPLOY_USER_STAGE"
+    DEPLOY_USER_KEY: "$SSH_PRIVATE_KEY_STAGE"
+  script:
+    - mkdir -p ~/.ssh
+    - ssh-keyscan "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+    - echo "$DEPLOY_USER_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 700 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - rsync -av "$PWD/" "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
+      --exclude=".git"
+      --exclude=".gitlab-ci.yml"
+      --exclude=".gitignore"
+      --exclude="README.md"
+      --exclude="build"
+      --delete-after
+  only:
+   - /^release\//
+  tags:
+    - docker
+
+################################### PRODUCTION ENVIRONMENT ####################################
+deploy:prod:
+  stage: deploy
+  image: git.fastdev.se:4567/devops/docker-base-images:alpine-ansistrano
+  variables:
+    DEPLOY_HOST: "$DEPLOY_HOST_PROD"
+    DEPLOY_PATH: "$DEPLOY_PATH_PROD"
+    DEPLOY_USER: "$DEPLOY_USER_PROD"
+    DEPLOY_USER_KEY: "$SSH_PRIVATE_KEY_PROD"
+  script:
+    - mkdir -p ~/.ssh
+    - ssh-keyscan "$DEPLOY_HOST" >> ~/.ssh/known_hosts
+    - echo "$DEPLOY_USER_KEY" | tr -d '\r' > ~/.ssh/id_rsa
+    - chmod 700 ~/.ssh/id_rsa
+    - eval "$(ssh-agent -s)"
+    - ssh-add ~/.ssh/id_rsa
+    - rsync -av "$PWD/" "${DEPLOY_USER}@${DEPLOY_HOST}:${DEPLOY_PATH}/"
+      --exclude=".git"
+      --exclude=".gitlab-ci.yml"
+      --exclude=".gitignore"
+      --exclude="README.md"
+      --exclude="build"
+      --delete-after
+  only:
+    - tags
+  tags:
+    - docker

@@ -1,0 +1,24 @@
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+table tr {
+    transition-duration: $transition-duration;
+}
+
+table td {
+    padding: 0.5rem 1rem;
+}
+
+.table-divider tr {
+    border-bottom: $border-width-thin solid $light;
+}
+
+.table-striped tr:nth-child(odd) {
+    background: $pale;
+}
+
+.table-hover tr:hover {
+    background: $light;
+}

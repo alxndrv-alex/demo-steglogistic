@@ -1,0 +1,87 @@
+@import './variables.scss';
+
+.modal {
+  &__overlay {
+    display: flex;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 99990;
+    &.closed {
+      display: none;
+    }
+  }
+
+  &__popup {
+    position: relative;
+    display: block;
+    background: $white;
+    padding: 32px;
+    border-radius: 16px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    z-index: 2147483647;
+    max-height: 100vh;
+    max-width: 1074px;
+    overflow-y: scroll;
+    // height: 700px;
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE/Edge */
+    &::-webkit-scrollbar {
+      display: none; /* Chrome/Safari */
+    }
+  }
+  &__content {
+    width: 100%;
+    // height: 100%;
+  }
+
+  &__h1 {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 42px;
+    color: $dark-text;
+    margin: 0;
+  }
+
+  &__h2 {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    color: $light-text;
+    margin: 0;
+    margin-bottom: 24px;
+  }
+
+  &__close-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: calc(0px + 20px);
+    width: 24px;
+    height: 24px;
+    border: none;
+    background-color: white;
+    padding: 0;
+    cursor: pointer;
+  }
+}
+
+@media screen and (max-width: $mobile-l) {
+  .modal {
+    &__popup {
+      min-width: 100%;
+      width: 100%;
+      height: 100vh;
+      border-radius: 0px;
+      padding: 16px;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+  }
+}

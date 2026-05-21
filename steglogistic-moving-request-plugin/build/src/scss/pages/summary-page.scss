@@ -1,0 +1,188 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.summary {
+  &-page {
+    width: 100%;
+    background-color: $gray-background;
+    padding: 160px 0;
+  }
+
+  &-container {
+    @include main_page_container;
+  }
+
+  &-header {
+    color: $dark-text;
+    margin-bottom: 40px;
+  }
+
+  &-title {
+    font-size: 32px;
+    font-weight: 700;
+    line-height: 42px;
+    margin: 0;
+    color: $dark-text;
+  }
+
+  &-id {
+    font-size: 14px;
+    font-weight: 700;
+    line-height: 19px;
+    margin: 0;
+    color: $light-text;
+  }
+
+  &-content {
+    margin-bottom: 40px;
+  }
+
+  &-row {
+    margin-bottom: 16px;
+    :last-child {
+      margin-bottom: 0px;
+    }
+
+    &__container {
+      display: flex;
+      gap: 16px;
+
+      @media (max-width: $mobile-l) {
+        flex-direction: column;
+      }
+    }
+  }
+
+  &-row_2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+  }
+
+  &-section {
+    width: 100%;
+    padding: 16px 32px;
+    background-color: $white;
+    border: 1px solid $gray-border;
+    border-radius: 16px;
+
+    &.comment {
+      background-color: $light-light-background;
+    }
+
+    &__title {
+      font-size: 18px;
+      font-weight: 700;
+      color: $dark-text;
+      margin: 0;
+    }
+
+    &__divider {
+      width: 100%;
+      border-bottom: 1px solid $red-old;
+      margin-bottom: 8px;
+      margin-top: 8px;
+      &_gray {
+        border-bottom: 1px solid $gray-border;
+      }
+    }
+
+    &__key {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      color: $light-text;
+    }
+
+    &__value {
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 24px;
+      color: $dark-text;
+    }
+
+    &__row {
+      width: 100%;
+      padding: 8px 0px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0px;
+      border-bottom: 1px solid $gray-border;
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+
+    &__row_service {
+      display: grid;
+      gap: 4px;
+      margin-bottom: 8px;
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+
+    &__value_service {
+      font-size: 16px;
+      font-weight: 600;
+      line-height: 21px;
+      color: $dark-text;
+    }
+
+    &__description {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 19px;
+      color: $light-text;
+    }
+
+    &__comment {
+      font-size: 14px;
+      font-weight: 500;
+      line-height: 19px;
+      color: $dark-text;
+    }
+  }
+
+  &-modal {
+    max-width: 449px;
+    &-text {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 24px;
+      color: $dark-text;
+      margin: 0;
+    }
+  }
+}
+
+@media screen and (max-width: $tablet-m) {
+  .summary {
+    &-page {
+      padding: 160px 0px 0px 0px;
+    }
+
+    &-row_2 {
+      grid-template-columns: 1fr;
+    }
+
+    &-title {
+      font-size: 24px;
+      line-height: 32px;
+    }
+
+    &-footer {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      & > button {
+        width: calc(50% - 4px);
+      }
+    }
+
+    &-content {
+      margin-bottom: 24px;
+    }
+  }
+}

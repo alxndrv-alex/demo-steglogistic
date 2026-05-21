@@ -1,0 +1,1 @@
+{"version":3,"sources":["front-page.scss"],"names":[],"mappings":"AAEA,kBACI,WAAA,EAAA,MAAA,KAAA,KAAA","file":"front-page.css","sourcesContent":["@import \"variables-old\";\r\n\r\n.fp-hero-gradient {\r\n    box-shadow: 0 -10em 10em 10em $white;\r\n}"]}

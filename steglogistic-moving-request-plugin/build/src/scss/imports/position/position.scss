@@ -1,0 +1,69 @@
+.a-relative {
+    position: relative;
+}
+
+.a-absolute {
+    position: absolute;
+}
+
+.a-fixed {
+    position: fixed;
+}
+
+.a-sticky {
+    position: sticky;
+}
+
+@media (max-width: $bp-lg) {
+    .lg-relative {
+        position: relative;
+    }
+
+    .lg-absolute {
+        position: absolute;
+    }
+
+    .lg-fixed {
+        position: fixed;
+    }
+
+    .lg-sticky {
+        position: sticky;
+    }
+}
+
+@media (max-width: $bp-md) {
+    .md-relative {
+        position: relative;
+    }
+
+    .md-absolute {
+        position: absolute;
+    }
+
+    .md-fixed {
+        position: fixed;
+    }
+
+    .md-sticky {
+        position: sticky;
+    }
+}
+
+@media (max-width: $bp-sm) {
+    .sm-relative {
+        position: relative;
+    }
+
+    .sm-absolute {
+        position: absolute;
+    }
+
+    .sm-fixed {
+        position: fixed;
+    }
+
+    .sm-sticky {
+        position: sticky;
+    }
+}

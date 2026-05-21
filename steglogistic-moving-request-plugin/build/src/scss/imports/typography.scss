@@ -1,0 +1,104 @@
+body {
+    font-family: $primary-font-family;
+    font-weight: $normal-weight;
+    line-height: $line-height-large;
+    background: $body-background;
+    color: $text-color;
+}
+
+.huge,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: $secondary-font-family;
+    font-weight: $heading-weight;
+    color: $heading-color;
+    line-height: $line-height-small;
+    margin-top: 2rem;
+    margin-bottom: 1rem;
+    overflow-wrap: anywhere;
+    /* Manual word break with hyphens by adding &shy; in the word */
+    hyphens: manual;
+}
+
+p {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.huge:first-child,
+h1:first-child,
+h2:first-child,
+h3:first-child,
+h4:first-child,
+h5:first-child,
+h6:first-child {
+    margin-top: 0;
+}
+
+.wp-block-column h2,
+.wp-block-column h3,
+.wp-block-column h4,
+.wp-block-column h5,
+.wp-block-column h6 {
+    margin-top: 1rem;
+}
+
+.huge:last-child,
+h1:last-child,
+h2:last-child,
+h3:last-child,
+h4:last-child,
+h5:last-child,
+h6:last-child,
+p:last-child,
+blockquote:last-child {
+    margin-bottom: 0;
+}
+
+b,
+strong {
+    font-weight: $bold-weight;
+}
+
+i,
+em {
+    font-style: italic;
+}
+
+blockquote {
+    border-left: $border-width-medium solid $dark;
+    color: $black;
+    font-style: italic;
+    margin: 1rem 0;
+    padding-left: 1rem;
+}
+
+.wp-block-image figcaption {
+    font-size: $font-size-extra-small;
+    color: $dark;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+/* Links */
+a {
+    color: $link-color;
+    transition-duration: $transition-duration;
+    text-decoration: none;
+    overflow-wrap: anywhere;
+}
+
+a:hover {
+    color: $hover-color;
+}
+
+h1 a,
+h2 a,
+h3 a,
+h4 a {
+    color: $text-color;
+}

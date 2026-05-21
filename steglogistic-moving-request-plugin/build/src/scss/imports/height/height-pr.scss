@@ -1,0 +1,21 @@
+.a-height-100pr {
+    height: 100%;
+}
+
+@media (max-width: $bp-lg) {
+    .lg-height-100pr {
+        height: 100%;
+    }
+}
+
+@media (max-width: $bp-md) {
+    .md-height-100pr {
+        height: 100%;
+    }
+}
+
+@media (max-width: $bp-sm) {
+    .sm-height-100pr {
+        height: 100%;
+    }
+}

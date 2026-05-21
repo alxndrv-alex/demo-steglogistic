@@ -1,0 +1,42 @@
+.icon-button-small {
+    display: flex;
+    padding: 6px;
+}
+
+.icon-button-small svg {
+    width: 15px;
+    height: 15px;
+    transition-duration: $transition-duration;
+}
+
+.icon-button-small path {
+    transition-duration: $transition-duration;
+}
+
+.icon-button-medium {
+    display: flex;
+    padding: 9px;
+}
+
+.icon-button-medium svg {
+    width: 30px;
+    height: 30px;
+}
+
+.icon-button-medium path {
+    transition-duration: $transition-duration;
+}
+
+.icon-button-large {
+    display: flex;
+    padding: 12px;
+}
+
+.icon-button-large svg {
+    width: 45px;
+    height: 45px;
+}
+
+.icon-button-large path {
+    transition-duration: $transition-duration;
+}

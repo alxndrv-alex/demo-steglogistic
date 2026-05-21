@@ -1,0 +1,50 @@
+.fluentform .ff-el-form-hide_label .ff-el-input--label {
+	display: none;
+}
+
+
+.fluentform .ff-step-header .ff-step-titles li:before {
+	border-radius: 100%;
+	width: 42px;
+	height: 42px;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	font-size: 1rem;
+	color: $secondary-color;
+	border-width: 2px;
+}
+
+.fluentform .ff-step-header .ff-step-titles li.ff_active:before,
+.fluentform .ff-step-header .ff-step-titles li.ff_completed:before {
+	background: $secondary-color
+}
+
+.fluentform .ff-step-header .ff-step-titles li.ff_active:after,
+.fluentform .ff-step-header .ff-step-titles li.ff_completed:after {
+	background: $secondary-color;
+}
+
+.fluentform .ff-step-header .ff-step-titles li:after {
+	top: 20px;
+	background: $secondary-color;
+}
+
+.fluentform .ff-step-header .ff-step-titles li {
+	font-size: $font-size-extra-small;
+	color: $dark;
+}
+
+.fluentform .ff-step-header .ff-step-titles li.ff_active,
+.fluentform .ff-step-header .ff-step-titles li.ff_completed {
+	color: $secondary-color;
+}
+
+.ff-step-header {
+	margin-bottom: 3rem !important;
+}
+
+.ff-el-form-check-label {
+	display: flex;
+	margin-bottom: .5rem;
+}

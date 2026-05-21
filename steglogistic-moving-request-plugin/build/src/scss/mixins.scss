@@ -1,0 +1,119 @@
+@import './variables.scss';
+
+//transition
+@mixin transition($time) {
+  transition-duration: $time;
+  transition-property: all;
+}
+
+//form fields
+@mixin input_text {
+  @media screen and (max-width: $mobile-l) {
+    height: 56px !important;
+  }
+}
+
+@mixin input_select {
+  @media screen and (max-width: $mobile-l) {
+    height: 56px !important;
+  }
+}
+
+@mixin input_date {
+  height: 56px;
+  min-width: 390px;
+  padding: 16px;
+  border: 2px solid $input-border;
+  border-radius: 4px;
+  box-sizing: border-box;
+  appearance: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  color: $light-text;
+  background-color: $white;
+  @include transition(0.3s);
+
+  &:hover {
+    border-color: $input-border-hover;
+    background-color: $input-background-hover;
+    @include transition(0.3s);
+  }
+
+  &:focus {
+    outline: none;
+    border-color: $red-old;
+    background-color: $input-background-hover;
+    @include transition(0.3s);
+  }
+
+  &::-webkit-calendar-picker-indicator {
+    // display: none;
+    color: $light-text;
+  }
+
+  &::-webkit-inner-spin-button {
+    // -webkit-appearance: none;
+    // margin: 0;
+    color: $light-text;
+  }
+
+  /* Скрытие стрелок в Firefox */
+  &::-moz-calendar-box {
+    // display: none;
+    color: $light-text;
+  }
+  @media screen and (max-width: $mobile-l) {
+    min-width: 100%;
+  }
+}
+
+@mixin input_file {
+  display: flex;
+  align-items: center;
+  max-width: 100px;
+  height: 56px;
+  padding: 0px 24px 0px 24px;
+  border-radius: 8px;
+  border: solid 1px $red-old;
+  gap: 8px;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 21px;
+  color: $red-old;
+  cursor: pointer;
+}
+
+//buttons
+
+//text
+
+//containers
+
+@mixin main_page_container {
+  border-radius: 16px;
+  max-width: 900px;
+  background-color: $light-background;
+  padding: 40px 24px;
+  margin: auto;
+  border: 1px solid #f3f3f3;
+  @media screen and (max-width: $mobile-l) {
+    width: 100%;
+    border-radius: 0px;
+    background-color: $white;
+    padding: 16px;
+    min-height: calc(100vh - 120px);
+    &.flex {
+      width: calc(100% - 48px);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin-left: 24px;
+      margin-right: 24px;
+      border-radius: 16px;
+      border: 1px solid $gray-border;
+    }
+  }
+}

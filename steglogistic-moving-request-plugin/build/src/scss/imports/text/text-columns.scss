@@ -1,0 +1,133 @@
+.a-text-columns-5 {
+    column-count: 5;
+}
+
+.a-text-columns-4 {
+    column-count: 4;
+}
+
+.a-text-columns-3 {
+    column-count: 3;
+}
+
+.a-text-columns-2 {
+    column-count: 2;
+}
+
+.a-text-column-gap-4rem {
+    column-gap: 4rem;
+}
+
+.a-text-column-gap-3rem {
+    column-gap: 3rem;
+}
+
+.a-text-column-gap-2rem {
+    column-gap: 2rem;
+}
+
+.a-text-column-gap-1rem {
+    column-gap: 1rem;
+}
+
+@media (max-width: $bp-lg) {
+    .lg-text-columns-4 {
+        column-count: 4;
+    }
+
+    .lg-text-columns-3 {
+        column-count: 3;
+    }
+
+    .lg-text-columns-2 {
+        column-count: 2;
+    }
+
+    .lg-text-columns-1 {
+        column-count: 1;
+    }
+
+    .lg-text-column-gap-4rem {
+        column-gap: 4rem;
+    }
+
+    .lg-text-column-gap-3rem {
+        column-gap: 3rem;
+    }
+
+    .lg-text-column-gap-2rem {
+        column-gap: 2rem;
+    }
+
+    .lg-text-column-gap-1rem {
+        column-gap: 1rem;
+    }
+}
+
+@media (max-width: $bp-md) {
+    .md-text-columns-4 {
+        column-count: 4;
+    }
+
+    .md-text-columns-3 {
+        column-count: 3;
+    }
+
+    .md-text-columns-2 {
+        column-count: 2;
+    }
+
+    .md-text-columns-1 {
+        column-count: 1;
+    }
+
+    .md-text-column-gap-4rem {
+        column-gap: 4rem;
+    }
+
+    .md-text-column-gap-3rem {
+        column-gap: 3rem;
+    }
+
+    .md-text-column-gap-2rem {
+        column-gap: 2rem;
+    }
+
+    .md-text-column-gap-1rem {
+        column-gap: 1rem;
+    }
+}
+
+@media (max-width: $bp-sm) {
+    .sm-text-columns-4 {
+        column-count: 4;
+    }
+
+    .sm-text-columns-3 {
+        column-count: 3;
+    }
+
+    .sm-text-columns-2 {
+        column-count: 2;
+    }
+
+    .sm-text-columns-1 {
+        column-count: 1;
+    }
+
+    .sm-text-column-gap-4rem {
+        column-gap: 4rem;
+    }
+
+    .sm-text-column-gap-3rem {
+        column-gap: 3rem;
+    }
+
+    .sm-text-column-gap-2rem {
+        column-gap: 2rem;
+    }
+
+    .sm-text-column-gap-1rem {
+        column-gap: 1rem;
+    }
+}

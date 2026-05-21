@@ -1,0 +1,149 @@
+.a-rows-1 {
+    grid-template-rows: 1fr;
+}
+
+.a-rows-2 {
+    grid-template-rows: repeat(2, 1fr);
+}
+
+.a-rows-3 {
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.a-rows-4 {
+    grid-template-rows: repeat(4, 1fr);
+}
+
+.a-rows-5 {
+    grid-template-rows: repeat(5, 1fr);
+}
+
+.a-rows-6 {
+    grid-template-rows: repeat(6, 1fr);
+}
+
+.a-rows-7 {
+    grid-template-rows: repeat(7, 1fr);
+}
+
+.a-rows-8 {
+    grid-template-rows: repeat(8, 1fr);
+}
+
+.a-rows-9 {
+    grid-template-rows: repeat(9, 1fr);
+}
+
+@media (max-width: $bp-lg) {
+    .lg-rows-1 {
+        grid-template-rows: 1fr;
+    }
+
+    .lg-rows-2 {
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .lg-rows-3 {
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .lg-rows-4 {
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .lg-rows-5 {
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    .lg-rows-6 {
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    .lg-rows-7 {
+        grid-template-rows: repeat(7, 1fr);
+    }
+
+    .lg-rows-8 {
+        grid-template-rows: repeat(8, 1fr);
+    }
+
+    .lg-rows-9 {
+        grid-template-rows: repeat(9, 1fr);
+    }
+}
+
+@media (max-width: $bp-md) {
+    .md-rows-1 {
+        grid-template-rows: 1fr;
+    }
+
+    .md-rows-2 {
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .md-rows-3 {
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .md-rows-4 {
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .md-rows-5 {
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    .md-rows-6 {
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    .md-rows-7 {
+        grid-template-rows: repeat(7, 1fr);
+    }
+
+    .md-rows-8 {
+        grid-template-rows: repeat(8, 1fr);
+    }
+
+    .md-rows-9 {
+        grid-template-rows: repeat(9, 1fr);
+    }
+}
+
+@media (max-width: $bp-sm) {
+    .sm-rows-1 {
+        grid-template-rows: 1fr;
+    }
+
+    .sm-rows-2 {
+        grid-template-rows: repeat(2, 1fr);
+    }
+
+    .sm-rows-3 {
+        grid-template-rows: repeat(3, 1fr);
+    }
+
+    .sm-rows-4 {
+        grid-template-rows: repeat(4, 1fr);
+    }
+
+    .sm-rows-5 {
+        grid-template-rows: repeat(5, 1fr);
+    }
+
+    .sm-rows-6 {
+        grid-template-rows: repeat(6, 1fr);
+    }
+
+    .sm-rows-7 {
+        grid-template-rows: repeat(7, 1fr);
+    }
+
+    .sm-rows-8 {
+        grid-template-rows: repeat(8, 1fr);
+    }
+
+    .sm-rows-9 {
+        grid-template-rows: repeat(9, 1fr);
+    }
+}

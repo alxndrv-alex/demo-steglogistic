@@ -1,0 +1,120 @@
+html,
+body {
+    font-size: (($text-max + $text-min) * 0.5) + (($text-max - $text-min) * 0.5);
+}
+.huge,
+.has-huge-font-size {
+    font-size: (($huge-max + $huge-min) * 0.5) + (($huge-max - $huge-min) * 0.5);
+}
+h1,
+.h1-size {
+    font-size: (($h1-max + $h1-min) * 0.5) + (($h1-max - $h1-min) * 0.5);
+}
+h2,
+.h2-size {
+    font-size: (($h2-max + $h2-min) * 0.5) + (($h2-max - $h2-min) * 0.5);
+}
+h3,
+.h3-size {
+    font-size: (($h3-max + $h3-min) * 0.5) + (($h3-max - $h3-min) * 0.5);
+}
+h4,
+.h4-size {
+    font-size: (($h4-max + $h4-min) * 0.5) + (($h4-max - $h4-min) * 0.5);
+}
+@media (max-width: $bp-lg) {
+    html,
+    body {
+        font-size: (($text-max + $text-min) * 0.5) + (($text-max - $text-min) * 0.166);
+    }
+    .huge,
+    .has-huge-font-size {
+        font-size: (($huge-max + $huge-min) * 0.5) + (($huge-max - $huge-min) * 0.166);
+    }
+    h1,
+    .h1-size {
+        font-size: (($h1-max + $h1-min) * 0.5) + (($h1-max - $h1-min) * 0.166);
+    }
+    h2,
+    .h2-size {
+        font-size: (($h2-max + $h2-min) * 0.5) + (($h2-max - $h2-min) * 0.166);
+    }
+    h3,
+    .h3-size {
+        font-size: (($h3-max + $h3-min) * 0.5) + (($h3-max - $h3-min) * 0.166);
+    }
+    h4,
+    .h4-size {
+        font-size: (($h4-max + $h4-min) * 0.5) + (($h4-max - $h4-min) * 0.166);
+    }
+}
+@media (max-width: $bp-md) {
+    html,
+    body {
+        font-size: (($text-max + $text-min) * 0.5) - (($text-max - $text-min) * 0.166);
+    }
+    .huge,
+    .has-huge-font-size {
+        font-size: (($huge-max + $huge-min) * 0.5) - (($huge-max - $huge-min) * 0.166);
+    }
+    h1,
+    .h1-size {
+        font-size: (($h1-max + $h1-min) * 0.5) - (($h1-max - $h1-min) * 0.166);
+    }
+    h2,
+    .h2-size {
+        font-size: (($h2-max + $h2-min) * 0.5) - (($h2-max - $h2-min) * 0.166);
+    }
+    h3,
+    .h3-size {
+        font-size: (($h3-max + $h3-min) * 0.5) - (($h3-max - $h3-min) * 0.166);
+    }
+    h4,
+    .h4-size {
+        font-size: (($h4-max + $h4-min) * 0.5) - (($h4-max - $h4-min) * 0.166);
+    }
+}
+@media (max-width: $bp-sm) {
+    html,
+    body {
+        font-size: (($text-max + $text-min) * 0.5) - (($text-max - $text-min) * 0.5);
+    }
+    .huge,
+    .has-huge-font-size {
+        font-size: (($huge-max + $huge-min) * 0.5) - (($huge-max - $huge-min) * 0.5);
+    }
+    h1,
+    .h1-size {
+        font-size: (($h1-max + $h1-min) * 0.5) - (($h1-max - $h1-min) * 0.5);
+    }
+    h2,
+    .h2-size {
+        font-size: (($h2-max + $h2-min) * 0.5) - (($h2-max - $h2-min) * 0.5);
+    }
+    h3,
+    .h3-size {
+        font-size: (($h3-max + $h3-min) * 0.5) - (($h3-max - $h3-min) * 0.5);
+    }
+    h4,
+    .h4-size {
+        font-size: (($h4-max + $h4-min) * 0.5) - (($h4-max - $h4-min) * 0.5);
+    }
+}
+.font-size-large,
+.has-large-font-size {
+    font-size: $font-size-large;
+}
+.font-size-medium,
+.has-medium-font-size {
+    font-size: $font-size-medium;
+}
+.font-size-base {
+    font-size: 1rem;
+}
+.font-size-small,
+.has-small-font-size {
+    font-size: $font-size-small;
+}
+.font-size-extra-small {
+    font-size: $font-size-extra-small;
+}

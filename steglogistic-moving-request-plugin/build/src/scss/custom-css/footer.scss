@@ -1,0 +1,37 @@
+.footer-logo svg,
+.footer-logo img {
+    width: 8rem;
+}
+
+.menu-stader-container ul {
+    column-count: 6;
+}
+
+.menu-stader-container a {
+    font-size: 0.85rem;
+    padding: .15rem 0;
+}
+
+@media (max-width: $bp-md) {
+    .menu-stader-container ul {
+        column-count: 5;
+    }
+}
+
+@media (max-width: $bp-sm) {
+    .menu-stader-container ul {
+        column-count: 3;
+    }
+}
+
+@media (max-width: $bp-tn) {
+    .menu-stader-container ul {
+        column-count: 2;
+    }
+}
+
+.footer-reco-badge a,
+.footer-reco-badge img {
+    width: 60px !important;
+    height: 100% !important;
+}

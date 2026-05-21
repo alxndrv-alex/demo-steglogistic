@@ -1,0 +1,179 @@
+// Button
+
+.button,
+.wp-block-button__link,
+.wp-block-file .wp-block-file__button,
+input[type=submit] {
+    position: relative;
+    background: $button-background;
+    color: $button-color;
+    border: none;
+    border-radius: $button-border-radius;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    text-decoration: none;
+    text-transform: $button-text-transform;
+    font-family: $button-font-family;
+    font-weight: $button-font-weight;
+    font-size: $button-font-size;
+    line-height: $line-height-small;
+    padding: 0 $button-horizontal-padding;
+    height: $button-height;
+    transition-duration: $button-transition-duration;
+    cursor: pointer;
+    outline: none;
+}
+
+.scrolled .wp-block-button__link:before,
+.scrolled .wp-block-file .wp-block-file__button:before,
+input[type=submit] {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    background: rgb(187 71 75 / 17%);
+    transition-duration: .3s;
+    border-radius: $border-radius;
+    opacity: 0;
+}
+
+.button::before,
+.wp-block-button__link:before,
+.wp-block-file .wp-block-file__button:before,
+input[type=submit] {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    background: $white-alpha-1;
+    transition-duration: .3s;
+    border-radius: $border-radius;
+    opacity: 0;
+}
+
+.button:hover,
+.wp-block-button__link:hover,
+.wp-block-file .wp-block-file__button:hover,
+input[type=submit]:hover {
+    color: $white;
+}
+
+.button:hover:before,
+.wp-block-button__link:hover:before,
+.wp-block-file .wp-block-file__button:hover:before,
+input[type=submit]:hover {
+    width: 100%;
+    opacity: 1;
+    color: $white;
+}
+
+.button.outline,
+.is-style-outline .wp-block-button__link {
+    background-color: transparent;
+    border: $border-width-thin solid $button-outline-background;
+    color: $button-outline-color;
+}
+
+.button.outline svg path {
+    fill: $button-outline-background;
+    transition-duration: $button-transition-duration;
+}
+
+.button.outline:hover,
+.is-style-outline .wp-block-button__link:hover {
+    background: transparent;
+    border-color: $button-outline-background-hover;
+    color: $button-outline-color-hover;
+}
+
+.button.outline:hover svg path {
+    fill: $button-color;
+    transition-duration: $button-transition-duration;
+}
+
+.button.with-icon-left svg {
+    margin-right: 0.5em;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.button.with-icon-right svg {
+    margin-left: 0.5em;
+    width: 1.2em;
+    height: 1.2em;
+}
+
+.button.with-icon-left path,
+.button.with-icon-right path {
+    fill: $button-color;
+    transition-duration: $button-transition-duration;
+}
+
+.button.with-icon-left:hover path,
+.button.with-icon-right:hover path {
+    fill: $button-color-hover;
+}
+
+.button.button-small,
+.button-small .wp-block-button__link,
+.wp-block-file .wp-block-file__button {
+    height: $button-height-small;
+    padding: 0 1.2rem;
+    font-size: $button-font-size-small;
+}
+
+.button.button-large,
+.button-large .wp-block-button__link {
+    height: $button-height-large;
+    padding: 0 2.2rem;
+    font-size: $button-font-size-large;
+}
+
+// Button Inverted
+
+.button.inverted,
+.inverted input[type=submit] {
+    background: $button-inverted-background;
+    color: $button-inverted-color;
+}
+
+.button.inverted path {
+    fill: $button-inverted-color;
+    transition-duration: $button-transition-duration;
+}
+
+.button.inverted:hover,
+.inverted input[type=submit]:hover {
+    background: $button-inverted-background-hover;
+    color: $button-inverted-color-hover;
+}
+
+.button.inverted:hover path {
+    fill: $button-inverted-color-hover;
+}
+
+.button.inverted.outline {
+    background: transparent;
+    border: $border-width-thin solid $button-inverted-background;
+    color: $button-inverted-background;
+}
+
+.button.inverted.outline:hover {
+    background: transparent;
+    border-color: $button-inverted-background;
+    color: $button-inverted-color;
+}
+
+.button.inverted.outline path {
+    fill: $button-inverted-background;
+}
+
+.button.inverted.outline:hover path {
+    fill: $button-inverted-color;
+}

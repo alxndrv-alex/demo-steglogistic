@@ -1,0 +1,26 @@
+.pagination {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+a.page-numbers,
+span.page-numbers {
+    padding: 0.6rem 1rem;
+    background: $pale;
+    color: $black;
+    margin-top: 5px;
+    margin-right: 5px;
+    border-radius: $border-radius;
+    display: block;
+}
+
+span.page-numbers.current {
+    background: $link-color;
+    color: $white;
+}
+
+a.page-numbers:hover {
+    background: $hover-color;
+    color: $white;
+}

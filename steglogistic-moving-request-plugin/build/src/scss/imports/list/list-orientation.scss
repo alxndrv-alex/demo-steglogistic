@@ -1,0 +1,26 @@
+.horizontal-list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.vertical-list {
+    margin: 0;
+    padding: 0;
+}
+
+.vertical-list li {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+}
+
+.horizontal-list a,
+.vertical-list a {
+    display: block;
+}

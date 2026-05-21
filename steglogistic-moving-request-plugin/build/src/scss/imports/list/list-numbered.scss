@@ -1,0 +1,41 @@
+.list-numbered,
+.list-numbered ol {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    counter-reset: item;
+}
+
+.list-numbered li,
+.list-numbered ol li {
+    padding-left: 3rem;
+    position: relative;
+    margin-bottom: 0.75rem;
+}
+
+.list-numbered li:before,
+.list-numbered ol li:before {
+    counter-increment: item;
+    content: counter(item) "";
+    width: 2rem;
+    height: 2rem;
+    background: $light;
+    color: $white;
+    border-radius: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+
+.list-numbered-raise.list-numbered li:before,
+.list-numbered-raise.list-numbered ol li:before {
+    top: -0.25rem;
+}
+
+.list-numbered-lower.list-numbered li:before,
+.list-numbered-lower.list-numbered ol li:before {
+    top: 0.25rem;
+}

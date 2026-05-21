@@ -1,0 +1,41 @@
+.light-link a,
+a.light-link {
+    color: $light-link;
+}
+
+.light-link a:hover,
+a.light-link:hover {
+    color: $light-link-hover;
+}
+
+.dark-link a,
+a.dark-link {
+    color: $black;
+}
+
+.dark-link a:hover,
+a.dark-link:hover {
+    color: $primary-color;
+}
+
+.underlined-link a,
+a.underlined-link {
+    border-bottom: $underlined-link;
+    padding-bottom: $underlined-link-padding-bottom;
+}
+
+.underlined-link a:hover,
+a.underlined-link:hover {
+    border-bottom: $underlined-link-hover;
+}
+
+.light-link.underlined-link a,
+a.light-link.underlined-link {
+    border-bottom: $underlined-link-inverted;
+    padding-bottom: $underlined-link-padding-bottom;
+}
+
+.light-link.underlined-link a:hover,
+a.light-link.underlined-link:hover {
+    border-bottom: $underlined-link-inverted-hover !important;
+}

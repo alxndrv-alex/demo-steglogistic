@@ -1,0 +1,27 @@
+// Box Shadow
+
+.box-shadow-large {
+    box-shadow: $box-shadow-large;
+}
+
+.box-shadow-medium {
+    box-shadow: $box-shadow-medium;
+}
+
+.box-shadow-small {
+    box-shadow: $box-shadow-small;
+}
+
+// Box Shadow Hover
+
+.box-shadow-hover-large:hover {
+    box-shadow: $box-shadow-large;
+}
+
+.box-shadow-hover-medium:hover {
+    box-shadow: $box-shadow-medium;
+}
+
+.box-shadow-hover-small:hover {
+    box-shadow: $box-shadow-small;
+}

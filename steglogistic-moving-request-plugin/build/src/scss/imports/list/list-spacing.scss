@@ -1,0 +1,29 @@
+.list-spacing-1_5rem li,
+.list-spacing-1_5rem ol li {
+    margin-bottom: 1.5rem;
+}
+
+.list-spacing-1rem li,
+.list-spacing-1rem ol li {
+    margin-bottom: 1rem;
+}
+
+.list-spacing-0_75rem li,
+.list-spacing-0_75rem ol li {
+    margin-bottom: 0.75rem;
+}
+
+.list-spacing-0_5rem li,
+.list-spacing-0_5rem ol li {
+    margin-bottom: 0.5rem;
+}
+
+.list-spacing-0_25rem li,
+.list-spacing-0_25rem ol li {
+    margin-bottom: 0.25rem;
+}
+
+.list-spacing-last-child-0 li:last-child,
+.list-spacing-last-child-0 ol li:last-child {
+    margin-bottom: 0;
+}

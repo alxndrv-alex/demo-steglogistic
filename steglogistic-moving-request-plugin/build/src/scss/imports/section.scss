@@ -1,0 +1,22 @@
+.section-wrapper {
+    width: 100%;
+    padding: calc(min(6vw, 80px) + 20px) $horizontal-section-padding;
+}
+
+.section-content {
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+}
+
+@media (max-width: $bp-sm) {
+    .section-wrapper {
+        padding: 40px $horizontal-section-padding-small;
+    }
+}
+
+@media (max-width: $bp-tn) {
+    .section-wrapper {
+        padding: 30px $horizontal-section-padding-tiny;
+    }
+}

@@ -1,0 +1,227 @@
+// Color
+$black: #464343;
+$black-alpha-3: rgba(0, 0, 0, 0.75);
+$black-alpha-2: rgba(0, 0, 0, 0.5);
+$black-alpha-1: rgba(0, 0, 0, 0.03);
+
+$dark: #999999;
+$light: #ece8de;
+$pale: #f7f4ed;
+
+$white: #fefdfb;
+$white-alpha-3: rgba(255, 255, 255, 0.75);
+$white-alpha-2: rgba(255, 255, 255, 0.5);
+$white-alpha-1: rgba(255, 255, 255, 0.25);
+
+$primary-color: #ba4246;
+$secondary-color: #074a63;
+$tertiary-color: purple;
+
+$success-color: green;
+$warning-color: orange;
+$error-color: red;
+
+$inverted-color: $white-alpha-3;
+
+$facebook-color: #1a77f2;
+$instagram-color: #ed4956;
+$twitter-color: #1fa2f1;
+$linkedin-color: #0577b5;
+$youtube-color: #ff0202;
+
+// Element Color
+$body-background: $white;
+$link-color: $primary-color;
+$hover-color: $primary-color;
+$text-color: $secondary-color;
+$heading-color: $text-color;
+
+// Font Family
+$primary-font-family: 'Red Hat Display',
+sans-serif;
+$secondary-font-family: 'Red Hat Display',
+sans-serif;
+$tertiary-font-family: sans-serif;
+
+// Font Wight
+$light-weight: 300;
+$normal-weight: 400;
+$bold-weight: 700;
+$heading-weight: $bold-weight;
+
+// Line Height
+$line-height-large: 1.6;
+$line-height-medium: 1.4;
+$line-height-small: 1.2;
+
+// Font Size
+$text-min: 15px;
+$text-max: 17px;
+$huge-min: 3.1rem;
+$huge-max: 4rem;
+$huge-min: 2.5rem;
+$huge-max: 3.1rem;
+$h1-min: 2rem;
+$h1-max: 2.5rem;
+$h2-min: 1.6rem;
+$h2-max: 2rem;
+$h3-min: 1.3rem;
+$h3-max: 1.6rem;
+$h4-min: 1.1rem;
+$h4-max: 1.3rem;
+
+$font-size-large: 1.2rem;
+$font-size-medium: 1.1rem;
+$font-size-small: 0.9rem;
+$font-size-extra-small: 0.8rem;
+
+// Breakpoints
+$bp-hg: 1600px;
+$bp-lg: 1280px;
+$bp-md: 960px;
+$bp-sm: 640px;
+$bp-tn: 320px;
+
+// Page Width
+$page-width-wide: 1440px;
+$page-width-default: 1280px;
+$page-width-narrow: 800px;
+
+// Width - Height
+$width-height-1536px: 1536px;
+$width-height-1408px: 1408px;
+$width-height-1280px: 1280px;
+$width-height-1152px: 1152px;
+$width-height-1024px: 1024px;
+$width-height-896px: 896px;
+$width-height-768px: 768px;
+$width-height-640px: 640px;
+$width-height-512px: 512px;
+$width-height-384px: 384px;
+$width-height-256px: 256px;
+$width-height-192px: 192px;
+$width-height-128px: 128px;
+$width-height-96px: 96px;
+$width-height-64px: 64px;
+$width-height-32px: 32px;
+$width-height-24px: 24px;
+$width-height-16px: 16px;
+
+// Veiwport Height
+$viewport-height-3: 80vh;
+$viewport-height-2: 50vh;
+$viewport-height-1: 25vh;
+
+// Variable Padding
+$v-padding-6: calc(.5rem + 6vw);
+$v-padding-5: calc(.5rem + 5vw);
+$v-padding-4: calc(.5rem + 4vw);
+$v-padding-3: calc(.5rem + 3vw);
+$v-padding-2: calc(.5rem + 2vw);
+$v-padding-1: calc(.5rem + 1vw);
+
+// Variable Padding
+$v-gap-6: calc(.5rem + 6vw);
+$v-gap-5: calc(.5rem + 5vw);
+$v-gap-4: calc(.5rem + 4vw);
+$v-gap-3: calc(.5rem + 3vw);
+$v-gap-2: calc(.5rem + 2vw);
+$v-gap-1: calc(.5rem + 1vw);
+
+// Border
+$border-width-thin: 2px;
+$border-width-medium: 3px;
+$border-width-thick: 5px;
+$border-radius: 5px;
+
+// Box Shadow
+$box-shadow-large: 0px 0px 3rem 0px rgba(0, 0, 0, 0.15);
+$box-shadow-medium: 0px 0px 2rem 0px rgba(0, 0, 0, 0.15);
+$box-shadow-small: 0px 0px 1rem 0px rgba(0, 0, 0, 0.15);
+
+// Transition Duration
+$transition-duration: 0.3s;
+
+// Button and Form
+$button-height: 3rem;
+$button-height-large: 4rem;
+$button-height-small: 2rem;
+$button-horizontal-padding: 2rem;
+$button-border-radius: $border-radius;
+$button-transition-duration: $transition-duration;
+$button-font-family: $primary-font-family;
+$button-font-weight: $bold-weight;
+$button-font-size: 1rem;
+$button-font-size-large: 1.2rem;
+$button-font-size-small: 0.9rem;
+$button-text-transform: none;
+$button-background: $primary-color;
+$button-background-hover: $hover-color;
+$button-color: $white;
+$button-color-hover: $white;
+$button-outline-background: $button-background;
+$button-outline-background-hover: $button-background;
+$button-outline-color: $button-background;
+$button-outline-color-hover: $primary-color;
+$button-inverted-background: $white;
+$button-inverted-background-hover: $hover-color;
+$button-inverted-color: $black;
+$button-inverted-color-hover: $white;
+
+// Form
+$form-background: white;
+$form-background-hover: $black-alpha-1;
+$form-background-focus: $black-alpha-1;
+$form-color: $dark;
+$form-placeholder: $dark;
+$form-border-width: $border-width-thin;
+$form-border-top: $form-border-width;
+$form-border-right: $form-border-width;
+$form-border-bottom: $form-border-width;
+$form-border-left: $form-border-width;
+$form-border-style: solid;
+$form-border-color: $light;
+$form-border-color-hover: $dark;
+$form-border-color-focus: $primary-color;
+$form-border-radius: $border-radius;
+$checkbox-border-radius: 2px;
+$checkbox-radio-width: $line-height-large+rem;
+$checkbox-radio-height: $line-height-large+rem;
+$form-horizontal-padding: 1.2rem;
+$form-textarea-min-height: 150px;
+$form-height: $button-height;
+$form-inverted-background: transparent;
+$form-inverted-background-hover: $form-inverted-background;
+$form-inverted-background-focus: $form-inverted-background;
+$form-inverted-color: $white;
+$form-inverted-placeholder: $white-alpha-2;
+$form-inverted-border-color: $white;
+$form-inverted-border-color-hover: $light;
+$form-inverted-border-color-focus: $light;
+
+// Links
+$light-link: $white-alpha-3;
+$light-link-hover: $white;
+$underlined-link-border-width: $border-width-thin;
+$underlined-link-padding-bottom: 2px;
+$underlined-link: $underlined-link-border-width solid $light;
+$underlined-link-hover: $underlined-link-border-width solid $hover-color;
+$underlined-link-inverted: $underlined-link-border-width solid $dark;
+$underlined-link-inverted-hover: $underlined-link-border-width solid $white;
+
+// Section
+$horizontal-section-padding: 6vw;
+$horizontal-section-padding-small: 20px;
+$horizontal-section-padding-tiny: 15px;
+
+// Splide
+$splide-arrow-width: 2.5rem;
+$splide-arrow-height: 2.5rem;
+$splide-arrow-icon-size: 1rem;
+
+// Hamburger
+$hamburger-bar-width: 2px;
+$hamburger-top-bar-rotation: 45deg;
+$hamburger-bottom-bar-rotation: -45deg;
+$hamburger-animation-duration-1: 0.2s;
+$hamburger-animation-duration-2: 0.2s;

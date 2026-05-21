@@ -1,0 +1,387 @@
+.header {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    position: fixed;
+    top: 0;
+    z-index: 2000;
+    transition-duration: $transition-duration;
+}
+
+.scrolled .header,
+.single .header,
+.blog .header {
+    background: $secondary-color;
+}
+
+.header-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 0 $horizontal-section-padding;
+}
+
+.logo {
+    display: flex;
+    padding: 10px 0;
+    align-items: flex-start;
+    filter: brightness(1);
+    transition-duration: $transition-duration;
+}
+
+.logo svg {
+    display: flex;
+    min-width: 120px;
+    width: 7rem;
+}
+
+.logo img {
+    width: 8rem;
+}
+
+.header-reco-badge {
+    display: flex;
+}
+
+.header-reco-badge a,
+.header-reco-badge img {
+    width: 3.5rem !important;
+    height: 100% !important;
+}
+
+// .scrolled .logo,
+// .off-canvas-open .logo {
+//    filter: brightness(5);
+// }
+
+@media (max-width: $bp-sm) {
+    .header-row {
+        padding: 0 $horizontal-section-padding-small;
+    }
+}
+
+
+@media (max-width: $bp-lg) {
+    .header-row .button {
+        display: none;
+    }
+}
+
+@media (max-width: $bp-tn) {
+    .header-row {
+        padding: 0 $horizontal-section-padding-tiny;
+    }
+}
+
+/* Main Menu Desktop */
+.main-menu-desktop {
+    margin-right: -1rem;
+}
+
+.main-menu-desktop a {
+    position: relative;
+    color: $white;
+    padding: .4rem .4rem;
+    margin: 2rem .5rem;
+    word-break: keep-all;
+    font-weight: $bold-weight;
+}
+
+
+// Solid Header
+.scrolled .header,
+.single .header,
+.blog .header {
+    background: $secondary-color;
+}
+
+.scrolled .main-menu-desktop a,
+.single .main-menu-desktop a,
+.blog .main-menu-desktop a {
+    padding: .4rem .4rem;
+    margin: 1rem .5rem;
+}
+
+.main-menu-desktop a:before {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 100%;
+    bottom: 0;
+    left: 0;
+    background: $white-alpha-1;
+    transition-duration: .3s;
+    border-radius: $border-radius;
+    opacity: 0;
+}
+
+.main-menu-desktop a:hover:before {
+    width: 100%;
+    opacity: 1;
+}
+
+
+.main-menu-desktop a:hover {
+    color: $white;
+}
+
+.main-menu-desktop .menu-item {
+    position: relative;
+}
+
+.main-menu-desktop .menu-item-has-children>a {
+    padding-right: 1rem;
+}
+
+.main-menu-desktop .menu-item-has-children>.sub-menu {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 100%;
+    border-radius: $border-radius * 2;
+    left: 0;
+    margin: 0;
+    margin-top: 1rem;
+    padding: .5rem;
+    width: 200px;
+    list-style-type: none;
+    background: $primary-color;
+    transition-duration: $transition-duration;
+    transition-delay: $transition-duration;
+    transform: translate(0px, 1rem);
+}
+
+
+.main-menu-desktop .menu-item-has-children>.sub-menu:before {
+    content: "";
+    position: absolute;
+    top: -.5rem;
+    left: 2rem;
+    width: 1rem;
+    height: 1rem;
+    background-color: $primary-color;
+    transform: rotate(45deg);
+}
+
+.main-menu-desktop .menu-item-has-children:hover>.sub-menu {
+    visibility: visible;
+    opacity: 1;
+    transform: translate(0px, 0rem);
+    transition-delay: 0s;
+}
+
+.main-menu-desktop .menu-item-has-children>a:after {
+    content: "";
+    width: 0.4rem;
+    height: 0.4rem;
+    display: block;
+    position: absolute;
+    top: calc(50% - 0.3rem);
+    right: 0.2rem;
+    transform: rotate(45deg);
+    border-bottom: 2px solid $white;
+    border-right: 2px solid $white;
+    opacity: 0.5;
+}
+
+.main-menu-desktop .menu-item-has-children>.sub-menu>.menu-item-has-children>.sub-menu {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    top: 0%;
+    right: 100%;
+}
+
+.main-menu-desktop .menu-item-has-children>.sub-menu>.menu-item-has-children:hover>.sub-menu {
+    visibility: visible;
+    opacity: 1;
+}
+
+.main-menu-desktop .menu-item-has-children>.sub-menu .menu-item-has-children>a:after {
+    display: none;
+}
+
+.main-menu-desktop .sub-menu a {
+    padding: 0.8rem 1rem;
+    margin: .5rem 0.5rem
+}
+
+.main-menu-desktop .current-menu-item>a,
+.main-menu-desktop .current-menu-parent>a {
+    color: $white;
+}
+
+@media (max-width: $bp-lg) {
+    .main-menu-desktop {
+        display: none;
+    }
+}
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    margin: 0;
+    padding: 1.5rem 15px;
+    margin-right: -15px;
+    z-index: 1000;
+}
+
+.hamburger-inner {
+    width: 36px;
+    height: 20px;
+    display: flex;
+    position: relative;
+    margin-top: -$hamburger-bar-width;
+}
+
+.hamburger-top-bar,
+.hamburger-middle-bar,
+.hamburger-bottom-bar {
+    position: absolute;
+    background: $white;
+    width: 100%;
+    height: $hamburger-bar-width;
+}
+
+.hamburger-top-bar {
+    top: 0;
+    transition: top $hamburger-animation-duration-1 ease-in-out $hamburger-animation-duration-2, width 0s ease-in-out $hamburger-animation-duration-2, transform $hamburger-animation-duration-2 ease-in-out 0s;
+}
+
+.hamburger-middle-bar {
+    opacity: 1;
+    top: 50%;
+    transition: opacity 0s ease-in-out $hamburger-animation-duration-2;
+}
+
+.hamburger-bottom-bar {
+    top: 100%;
+    transition: top $hamburger-animation-duration-1 ease-in-out $hamburger-animation-duration-2, transform $hamburger-animation-duration-2 ease-in-out 0s;
+}
+
+.off-canvas-open .hamburger-top-bar {
+    top: 50%;
+    background: $white;
+    transform: rotate($hamburger-top-bar-rotation);
+    transition: top $hamburger-animation-duration-1 ease-in-out, width 0s ease-in-out $hamburger-animation-duration-1, transform $hamburger-animation-duration-2 ease-in-out $hamburger-animation-duration-1;
+}
+
+.off-canvas-open .hamburger-middle-bar {
+    opacity: 0;
+    background: $white;
+    transition: opacity 0s ease-in-out $hamburger-animation-duration-1;
+}
+
+.off-canvas-open .hamburger-bottom-bar {
+    top: 50%;
+    background: $white;
+    transform: rotate($hamburger-bottom-bar-rotation);
+    transition: top $hamburger-animation-duration-1 ease-in-out, transform $hamburger-animation-duration-2 ease-in-out $hamburger-animation-duration-1;
+}
+
+
+@media (max-width: $bp-lg) {
+    .hamburger {
+        display: flex;
+    }
+}
+
+/* Off-canvas */
+body.off-canvas-open {
+    overflow: hidden;
+}
+
+.off-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: $secondary-color;
+    display: flex;
+    align-items: start;
+    justify-content: center;
+    transform: translateX(-100vw);
+    transition-duration: $hamburger-animation-duration-1 + $hamburger-animation-duration-2;
+    z-index: 2000;
+    padding: calc(6vw + 20px + 22px) 0;
+    overflow-y: scroll;
+    scroll-behavior: smooth;
+
+}
+
+.off-canvas-open .off-canvas {
+    transform: translateX(0);
+}
+
+.off-canvas-content {
+    max-width: 512px;
+    flex-direction: column;
+    display: flex;
+    width: 100%;
+    padding: calc(1rem + 5vw);
+    overflow-y: scroll;
+}
+
+@media (max-width: $bp-sm) {
+    .off-canvas-content {
+        min-width: 270px;
+    }
+}
+
+/* Main Menu Mobile */
+.accordion-menu a {
+    color: $white;
+    padding: 0.75rem 0;
+    word-break: keep-all;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.accordion-menu>ul>li:last-child>a {
+    border-bottom: 0;
+}
+
+.accordion-menu .menu-item {
+    position: relative;
+}
+
+.accordion-menu .menu-item-has-children>.sub-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition-duration: $transition-duration;
+}
+
+.accordion-menu .menu-item-has-children>a:after {
+    content: "";
+    width: 0.4rem;
+    height: 0.4rem;
+    display: block;
+    position: absolute;
+    top: 1.25rem;
+    right: 0.1rem;
+    transform: rotate(45deg);
+    border-bottom: 2px solid $white;
+    border-left: 2px solid $white;
+    opacity: 0.5;
+    transition-duration: $hamburger-animation-duration-1 + $hamburger-animation-duration-2;
+}
+
+.accordion-menu .menu-item-has-children>a.active:after {
+    right: 0.1rem;
+    transform: rotate(-45deg);
+}
+
+.accordion-menu .sub-menu {
+    padding-left: 1rem;
+}
+
+.accordion-menu .current-menu-item>a {
+    color: $secondary-color;
+}

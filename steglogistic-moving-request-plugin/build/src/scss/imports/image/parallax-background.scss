@@ -1,0 +1,11 @@
+.parallax-background img {
+    height: calc(100% + 300px);
+    top: auto;
+    bottom: 0;
+}
+
+@media (max-width: $bp-sm) {
+    .parallax-background img {
+        height: calc(100% + 150px);
+    }
+}

@@ -1,0 +1,247 @@
+// Form
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="password"],
+input[type="search"],
+input[type="url"],
+textarea {
+    border-top-width: $form-border-top;
+    border-right-width: $form-border-right;
+    border-bottom-width: $form-border-bottom;
+    border-left-width: $form-border-left;
+    border-style: $form-border-style;
+    border-color: $form-border-color;
+    border-radius: $form-border-radius;
+    background: $form-background;
+    color: $form-color;
+    padding: 0 $form-horizontal-padding;
+    flex-grow: 1;
+    transition-duration: $transition-duration;
+    transition-property: color, border-color, background, background-color;
+    outline: 0;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="password"],
+input[type="search"],
+input[type="url"] {
+    height: $form-height;
+    line-height: $line-height-small;
+}
+
+textarea {
+    padding: $form-horizontal-padding - 0.4rem $form-horizontal-padding;
+    line-height: $line-height-large;
+    min-height: $form-textarea-min-height;
+    resize: vertical;
+}
+
+input[type="text"]:hover,
+input[type="email"]:hover,
+input[type="number"]:hover,
+input[type="tel"]:hover,
+input[type="password"]:hover,
+input[type="search"]:hover,
+input[type="url"]:hover,
+textarea:hover {
+    background: $form-background-hover;
+    border-color: $form-border-color-hover;
+}
+
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="url"]:focus,
+textarea:focus {
+    background: $form-background-focus;
+    border-color: $form-border-color-focus;
+}
+
+::placeholder {
+    color: $form-placeholder;
+}
+
+input[type="checkbox"],
+input[type="radio"] {
+    position: relative;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+    cursor: pointer;
+    width: $checkbox-radio-width;
+    height: $checkbox-radio-height;
+    background: $form-background;
+    border: $border-width-thin solid $form-border-color;
+    margin: 0 10px 0 0;
+    transition-duration: $transition-duration;
+    transition-property: border-color, background, background-color;
+}
+
+input[type="checkbox"]:hover,
+input[type="radio"]:hover {
+    background: $form-background-hover;
+    border-color: $form-border-color-hover;
+}
+
+input[type="checkbox"]:after,
+input[type="radio"]:after {
+    content: "";
+    width: $checkbox-radio-width;
+    height: $checkbox-radio-height;
+    position: absolute;
+    top: -$form-border-width;
+    left: -$form-border-width;
+    display: block;
+    opacity: 0;
+    transition-duration: $transition-duration;
+    background-color: $primary-color;
+}
+
+input[type="checkbox"]:after {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 26 26"><polyline points="6,13 11,18 20,8" style="fill:none;stroke:white;stroke-width:2" /></svg>');
+}
+
+input[type="radio"]:after {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100%" height="100%" viewBox="0 0 26 26"><circle cx="13" cy="13" r="6" style="fill:white;" /></svg>');
+}
+
+input[type="checkbox"]:checked:after,
+input[type="radio"]:checked:after {
+    opacity: 1;
+}
+
+input[type="checkbox"],
+input[type="checkbox"]:after,
+input[type="checkbox"]:checked:after {
+    border-radius: $checkbox-border-radius;
+}
+
+input[type="radio"],
+input[type="radio"]:after,
+input[type="radio"]:checked:after {
+    border-radius: 100%;
+}
+
+select {
+    height: $form-height;
+    line-height: $line-height-small;
+    padding: 0 $form-horizontal-padding;
+    border-top-width: $form-border-top;
+    border-right-width: $form-border-right;
+    border-bottom-width: $form-border-bottom;
+    border-left-width: $form-border-left;
+    border-style: $form-border-style;
+    border-color: $form-border-color;
+    border-radius: $form-border-radius;
+    background-color: $form-background;
+    color: $form-color;
+    background-image: linear-gradient(45deg, transparent 50%, grey 50%),
+        linear-gradient(135deg, grey 50%, transparent 50%);
+    background-position: calc(100% - 20px) calc(22px),
+        calc(100% - 15px) calc(22px), 100% 0;
+    background-size: 5px 5px, 5px 5px, 2.5em 2.5em;
+    background-repeat: no-repeat;
+    transition-duration: $transition-duration;
+    transition-property: color, border-color, background-color;
+    outline: 0;
+    cursor: pointer;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    font-family: inherit;
+    font-size: inherit;
+    width: 100%;
+}
+
+select:hover {
+    border-color: $form-border-color-hover;
+}
+
+// Form Inverted
+.inverted input[type="text"],
+.inverted input[type="email"],
+.inverted input[type="number"],
+.inverted input[type="tel"],
+.inverted input[type="password"],
+.inverted input[type="search"],
+.inverted input[type="url"],
+.inverted textarea {
+    background: $form-inverted-background;
+    color: $form-inverted-color;
+    border-color: $form-inverted-border-color;
+}
+
+.inverted input[type="text"]:hover,
+.inverted input[type="email"]:hover,
+.inverted input[type="number"]:hover,
+.inverted input[type="tel"]:hover,
+.inverted input[type="password"]:hover,
+.inverted input[type="search"]:hover,
+.inverted input[type="url"]:hover,
+.inverted textarea:hover {
+    background: $form-inverted-background-hover;
+    border-color: $form-inverted-border-color-hover;
+}
+
+.inverted input[type="text"]:focus,
+.inverted input[type="email"]:focus,
+.inverted input[type="number"]:focus,
+.inverted input[type="tel"]:focus,
+.inverted input[type="password"]:focus,
+.inverted input[type="search"]:focus,
+.inverted input[type="url"]:focus,
+.inverted textarea:focus {
+    background: $form-inverted-background-focus;
+    border-color: $form-inverted-border-color-focus;
+}
+
+.inverted input::placeholder,
+.inverted textarea::placeholder {
+    color: $form-inverted-placeholder;
+}
+
+.inverted input[type="checkbox"],
+.inverted input[type="radio"] {
+    background: $form-inverted-background;
+    border-color: $form-inverted-border-color;
+}
+
+.inverted input[type="checkbox"]:hover,
+.inverted input[type="radio"]:hover {
+    border-color: $form-inverted-border-color-hover;
+}
+
+.inverted input[type="checkbox"]:checked:after,
+.inverted input[type="radio"]:checked:after {
+    background: $white;
+}
+
+.inverted select {
+    background-color: $form-inverted-background;
+    border-color: $form-inverted-border-color;
+    color: $white;
+}
+
+.inverted select:hover {
+    border-color: $form-inverted-border-color-hover;
+}
+
+.no-margin-bottom {
+    margin-bottom: 0 !important;
+}

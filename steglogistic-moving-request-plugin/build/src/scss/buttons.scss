@@ -1,0 +1,21 @@
+@import './variables.scss';
+
+button.loading {
+  &::after {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    content: 'Laddar…';
+    width: 100%;
+    height: 100%;
+    background: $red-old;
+    border-radius: 5px;
+    top: 0;
+    left: 0;
+  }
+}
+
+button.full-width {
+  width: 100%;
+}

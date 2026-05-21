@@ -1,0 +1,69 @@
+.a-margin-top-auto {
+    margin-top: auto;
+}
+
+.a-margin-right-auto {
+    margin-right: auto;
+}
+
+.a-margin-bottom-auto {
+    margin-bottom: auto;
+}
+
+.a-margin-left-auto {
+    margin-left: auto;
+}
+
+@media (max-width: $bp-lg) {
+    .lg-margin-top-auto {
+        margin-top: auto;
+    }
+    
+    .lg-margin-right-auto {
+        margin-right: auto;
+    }
+
+    .lg-margin-bottom-auto {
+        margin-bottom: auto;
+    }
+
+    .lg-margin-left-auto {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: $bp-md) {
+    .md-margin-top-auto {
+        margin-top: auto;
+    }    
+
+    .md-margin-right-auto {
+        margin-right: auto;
+    }
+
+    .md-margin-bottom-auto {
+        margin-bottom: auto;
+    }
+
+    .md-margin-left-auto {
+        margin-left: auto;
+    }
+}
+
+@media (max-width: $bp-sm) {
+    .sm-margin-top-auto {
+        margin-top: auto;
+    }
+    
+    .sm-margin-right-auto {
+        margin-right: auto;
+    }
+
+    .sm-margin-bottom-auto {
+        margin-bottom: auto;
+    }
+
+    .sm-margin-left-auto {
+        margin-left: auto;
+    }
+}
