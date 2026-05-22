@@ -150,11 +150,9 @@ class FD_Hooks {
 				ver: filemtime( FD_SMR_PLUGIN_DIR_PATH . '/css/style.css' )
 			);
 
-			$file = 'https://maps.googleapis.com/maps/api/js?key=AIzaSyAEDkS1jyHvaKkt5XNsfvzLDIWxVVBNiQI&callback=initService&libraries=places&v=weekly&language=en';
-
 			wp_enqueue_script(
 				'google-maps',
-				'https://maps.googleapis.com/maps/api/js?key=AIzaSyAEDkS1jyHvaKkt5XNsfvzLDIWxVVBNiQI&callback=initService&libraries=places&v=weekly&language=en',
+				'https://maps.googleapis.com/maps/api/js?key='.GOOGLE_API_KEY.'&callback=initService&libraries=places&v=weekly&language=en',
 				array( 'jquery' ),
 				args: array(
 					'strategy'  => 'async',
